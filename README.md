@@ -20,12 +20,14 @@
   Install npm Node.js v14 or greater   
   Install npm Inquirer   
   Install npm MySQL   
-  Install npm nodemon 2.0.20 for Dev only   
+  Install npm console.table
+  Install npm console.table
+     
   
 
   ## Usage
   In the terminal type ‘node server.js’   
-  or nodemon server.js for Dev   
+    
   
   <img width="1207" alt="Demo" src="gif\Note Taker.gif">
 
@@ -37,10 +39,13 @@
   ## Credits
   Google   
   https://stackoverflow.com/   
-  https://www.npmjs.com/   
-  https://www.npmjs.com/package/express   
-  https://expressjs.com/   
-
+  https://www.npmjs.com/  
+  https://www.npmjs.com/package/mysql2   
+  https://www.npmjs.com/package/inquirer   
+  https://www.npmjs.com/package/console.table    
+  
+  
+  
 
   ## Tests
   N/A
