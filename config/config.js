@@ -10,9 +10,5 @@ const dbConfig = {
     database: process.env.DB_NAME
 }
 
-// Connect to database
-// const db = mysql.createConnection(dbConfig,
-//     console.log(` +++ Connected to ${process.env.DB_NAME}`)
-// ).promise(); // <== Enable Promise based syntax
 
 module.exports = dbConfig;
