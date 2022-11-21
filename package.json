@@ -1,18 +1,16 @@
 {
-  "name": "conent-management-system-challenge-12",
+  "name": "content-management-systems-challenge-12",
   "version": "1.0.0",
-  "description": "command-line application to manage a company's employee database",
+  "description": "Developers frequently have to create interfaces that allow non-developers to easily view and interact with information stored in databases. These interfaces are called content management systems (CMS). Your assignment this week is to build a command-line application from scratch to manage a company's employee database, using Node.js, Inquirer, and MySQL.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wolfjfly/content-management-systems-challenge-12.git"
   },
-  "author": "Wolfjfly",
+  "author": "wolfjfly",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wolfjfly/content-management-systems-challenge-12/issues"
@@ -22,10 +20,6 @@
     "console.table": "^0.10.0",
     "dotenv": "^16.0.3",
     "inquirer": "^8.2.4",
-    "mysql": "^2.18.1",
     "mysql2": "^2.3.3"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.20"
   }
 }
