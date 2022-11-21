@@ -7,7 +7,7 @@ require('console.table');
 const db= mysql.createConnection(dbConfig,
     console.log(` +++ Connected to ${process.env.DB_NAME}`))
 
-// questions
+
 const addDepartment= async()=>{
     try{
         console.log('Adding to department');
