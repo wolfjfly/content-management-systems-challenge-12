@@ -26,10 +26,10 @@
   
 
   ## Usage
-  In the terminal type ‘node server.js’   
+  In the terminal type ‘node index.js’   
     
   
-  <img width="1207" alt="Demo" src="gif\Note Taker.gif">
+  <img width="1207" alt="Demo" src="Assets/gif.gif">
 
   
   ## Contributing
