@@ -8,6 +8,9 @@ const dbConfig = {
     database: process.env.DB_NAME
 }
 
+module.exports = dbConfig;
+
+
 
 
 
