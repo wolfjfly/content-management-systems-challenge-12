@@ -3,19 +3,16 @@ const mysql = require('mysql2');
 const dbConfig = require('./config/config')
 require('console.table');
 
-// Connect to database
+
 const db = mysql.createConnection(dbConfig,
     console.log(` +++ Connected to ${process.env.DB_NAME}`))
 
-
-// VARIABLE FOR QUESTION TO ADD A DEPARTMENT
 const addDept= {
     type: "input",
     name: "new_department",
     message: "What is the name of the department you would like to add?",
 };
 
-// ADD DEPARTMENT FUNCTION
 const addDepartment = () => {
     return inquirer.prompt(addDept).then((answer) => {
         const deptSql =
@@ -30,7 +27,6 @@ const addDepartment = () => {
     });
 };
 
-// CREATING ARRAY OF DEPARTMENTS FOR ADD ROLE INQUIRER PROMPTS
 const getAllDepts = () => {
     return new Promise((resolve, reject) => {
         var departmentChoices;
@@ -39,16 +35,14 @@ const getAllDepts = () => {
                 console.error(err);
                 return reject(err);
             }
-            console.table(results);
             departmentChoices = results.map((department) => {
-                return { name: department.department_name, value: department.id };
+                return { name: department.name, value: department.id };
             });
             resolve(departmentChoices);
         });
     });
 };
 
-// ADD ROLE FUNCTION
 const addRole = () => {
     getAllDepts().then((departmentChoices) => {
         return inquirer
@@ -56,7 +50,7 @@ const addRole = () => {
                 {
                     type: "input",
                     name: "new_role",
-                    message: "What role would you like to add?",
+                    message: "What is the name of the role you would like to add?",
                 },
                 {
                     type: "list",
@@ -67,7 +61,7 @@ const addRole = () => {
                 {
                     type: "input",
                     name: "role_salary",
-                    message: "What is the salary of the role add?",
+                    message: "What is the salary of the role?",
                 },
             ])
             .then((answers) => {
@@ -77,7 +71,7 @@ const addRole = () => {
                     parseFloat(answers.role_salary),
                 ].join(",");
                 const roleSql =
-                    "INSERT INTO role (job_title, department_id, salary) VALUES(" + role +")";
+                    "INSERT INTO role (title, department_id, salary) VALUES(" + role +")";
                 db.query(roleSql, function (err, results) {
                     if (err) {
                         console.log(err);
@@ -89,7 +83,6 @@ const addRole = () => {
     });
 };
 
-// CREATING ARRAYS TO USE FOR ADD EMPLOYEES INQUIRER PROMPTS
 const getAllManagers = () => {
     return new Promise((resolve, reject) => {
         var managerChoices;
@@ -100,7 +93,7 @@ const getAllManagers = () => {
                     console.error(err);
                     return reject(err);
                 }
-                console.table(results);
+                // console.table(results);
                 managerChoices = results.map((manager) => {
                     return { name: manager.first_name, value: manager.id };
                 });
@@ -113,21 +106,20 @@ const getAllManagers = () => {
 const getAllRoles = () => {
     return new Promise((resolve, reject) => {
         var roleChoices;
-        db.query("SELECT job_title, id FROM role", function (err, results) {
+        db.query("SELECT title, id FROM role", function (err, results) {
             if (err) {
                 console.error(err);
                 return reject(err);
             }
-            console.table(results);
+            // console.table(results);
             roleChoices = results.map((role) => {
-                return { name: role.job_title, value: role.id };
+                return { name: role.title, value: role.id };
             });
             resolve(roleChoices);
         });
     });
 };
 
-//ADD EMPLOYEE FUNCTION USING THE GETALLROLES & GETALLMANAGERS FUNCTIONS TO POPULATE ARRAYS FOR QUESTION CHOICES
 const addEmployee = () => {
     var addEmployeeAnswers = {};
     getAllRoles().then((roleChoices) => {
